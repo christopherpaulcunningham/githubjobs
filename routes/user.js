@@ -56,6 +56,7 @@ router.post('/register', (request, response) => {
 router.post('/login', (request, response) => {
 	// Check input validation.
 	const { errors, isValid } = validateUserLogin(request.body);
+	
 	if (!isValid) {
 		return response.status(400).json(errors);
 	}
@@ -78,7 +79,8 @@ router.post('/login', (request, response) => {
 				// Create JWT payload.
 				const payload = {
 					id: user.id,
-					name: user.name,
+					firstName: user.firstName,
+					lastName: user.lastName,
 				};
 
 				// Create token signature.

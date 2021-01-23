@@ -1,0 +1,22 @@
+.input-field-container input {
+	background-color: #f4f5f7;
+	border: 2px solid #dbeaf0;
+	border-radius: 5px;
+	margin: 0.5rem 0;
+	max-width: 20rem;
+	padding: 0.5rem;
+	width: 100%;
+}
+.input-field-container input::placeholder {
+	color: #acb6bb;
+}
+
+/* Error message. */
+.input-field-container span.red-text  {
+	color: red;
+	display: block;
+	font-size: 0.8rem;
+}
+.input-field-container input.invalid {
+	border: 1px solid red ;
+}
