@@ -13,29 +13,29 @@ module.exports = function validateUserRegistration(data) {
 
 	// First and last name validation.
 	if (Validator.isEmpty(data.firstName)) {
-		errors.firstName = 'Please enter a first name.';
+		errors.registerFirstName = 'Please enter a first name.';
 	}
 	if (Validator.isEmpty(data.lastName)) {
-		errors.lastName = 'Please enter a last name.';
+		errors.registerLastName = 'Please enter a last name.';
 	}
 
 	// Email address validation.
 	if (Validator.isEmpty(data.email)) {
-		errors.email = 'Please enter an email address.';
+		errors.registerEmail = 'Please enter an email address.';
 	} else if (!Validator.isEmail(data.email)) {
-		errors.email = 'Please enter a valid email address.';
+		errors.registerEmail = 'Please enter a valid email address.';
 	}
 
 	// Password validation.
 	if (Validator.isEmpty(data.password)) {
-		errors.password = 'Please enter a password.';
+		errors.registerPassword = 'Please enter a password.';
 	} else if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
 		errors.password = 'Password must be between 6 & 30 characters long.';
 	}
 	if (Validator.isEmpty(data.password2)) {
-		errors.password2 = 'Please confirm your password.';
+		errors.registerPassword2 = 'Please confirm your password.';
 	} else if (!Validator.equals(data.password, data.password2)) {
-		errors.password2 = 'Passwords must match.';
+		errors.registerPassword2 = 'Passwords must match.';
 	}
 
 	return {

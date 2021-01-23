@@ -56,6 +56,7 @@ router.post('/register', (request, response) => {
 router.post('/login', (request, response) => {
 	// Check input validation.
 	const { errors, isValid } = validateUserLogin(request.body);
+	
 	if (!isValid) {
 		return response.status(400).json(errors);
 	}
