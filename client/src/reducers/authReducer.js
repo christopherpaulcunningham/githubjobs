@@ -8,7 +8,7 @@ const initialState = {
 	loading: false,
 };
 
-function authReducer(state = initialState, action) {
+const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_CURRENT_USER:
 			return {

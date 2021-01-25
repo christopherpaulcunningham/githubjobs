@@ -55,7 +55,7 @@ function Login() {
 								<InputField
 									id="email"
 									value={formData.email}
-									error={errors.loginEmail}
+									error={errors.loginEmail, errors.emailnotfound}
 									type="email"
 									placeholder="Email"
 									className={classnames('', {
@@ -68,7 +68,7 @@ function Login() {
 								<InputField
 									id="password"
 									value={formData.password}
-									error={errors.loginPassword}
+									error={errors.loginPassword, errors.passwordincorrect}
 									type="password"
 									placeholder="Password"
 									className={classnames('', {
