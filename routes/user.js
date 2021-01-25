@@ -1,74 +1,68 @@
 require('dotenv').config();
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 // Load input validation.
-const validateUserRegistration = require("../validation/register");
-const validateUserLogin = require("../validation/login");
+const validateUserRegistration = require('../validation/register');
+const validateUserLogin = require('../validation/login');
 
 // Load User model.
-const User = require("../models/user");
+const User = require('../models/user');
 
-// @route POST users/register
-// @desc User registration
-// @access Public
-router.post('/register', (request, response) => {
+router.post('/register', (req, res) => {
 	// Check input validation.
-	const { errors, isValid } = validateUserRegistration(request.body);
+	const { errors, isValid } = validateUserRegistration(req.body);
 	if (!isValid) {
-		return response.status(400).json(errors);
+		return res.status(400).json(errors);
 	}
 
 	// Check if the email address is already associated with an acount.
-	User.findOne({ email: request.body.email }).then((user) => {
+	User.findOne({ email: req.body.email }).then((user) => {
 		if (user) {
-			return response.status(400).json({
+			return res.status(400).json({
 				email: 'An account already exists with this email address.',
 			});
 		} else {
 			const newUser = new User({
-				firstName: request.body.firstName,
-				lastName: request.body.lastName,
-				email: request.body.email,
-				password: request.body.password,
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
+				email: req.body.email,
+				password: req.body.password,
 			});
 
 			// Hash password before saving.
 			bcrypt.genSalt(10, (err, salt) => {
 				bcrypt.hash(newUser.password, salt, (err, hash) => {
-				  if (err) throw err;
-				  newUser.password = hash;
-				  newUser
-					.save()
-					.then(user => response.json(user))
-					.catch(err => console.log(err));
+					if (err) throw err;
+					newUser.password = hash;
+					newUser
+						.save()
+						.then((user) => res.json(user))
+						.catch((err) => console.log(err));
 				});
-			  });
+			});
 		}
 	});
 });
 
-// @route POST users/login
-// @desc User login
-// @access Public
-router.post('/login', (request, response) => {
+router.post('/login', (req, res) => {
 	// Check input validation.
-	const { errors, isValid } = validateUserLogin(request.body);
-	
+	const { errors, isValid } = validateUserLogin(req.body);
+
 	if (!isValid) {
-		return response.status(400).json(errors);
+		return res.status(400).json(errors);
 	}
 
-	const email = request.body.email;
-	const password = request.body.password;
+	const email = req.body.email;
+	const password = req.body.password;
 
 	// Find the user account via the email address.
 	User.findOne({ email }).then((user) => {
 		// Check if the email address is associated with an acount.
 		if (!user) {
-			return response.status(404).json({
+			return res.status(404).json({
 				emailnotfound: 'This email address is not associated with an account.',
 			});
 		}
@@ -89,17 +83,17 @@ router.post('/login', (request, response) => {
 					process.env.SECRET_OR_KEY.toString(),
 					{
 						// One month in seconds.
-						expiresIn: 2629746
+						expiresIn: 2629746,
 					},
 					(error, token) => {
-						response.json({
+						res.json({
 							success: true,
 							token: 'Bearer ' + token,
 						});
 					}
 				);
 			} else {
-				return response
+				return res
 					.status(400)
 					.json({ passwordincorrect: 'The password provided is incorrect.' });
 			}
