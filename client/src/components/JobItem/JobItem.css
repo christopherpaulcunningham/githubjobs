@@ -1,0 +1,86 @@
+.job-item-container {
+	background-color: #ffffff;
+	border-radius: 10px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 1rem 0 3rem;
+	max-width: 350px;
+    padding: 0 1rem 1rem;
+    transition: transform .2s;
+	width: 90%;
+}
+.job-item-container:hover {
+    transform: scale(1.03);
+}
+.company-logo-container {
+	height: 2.75rem;
+}
+.company-logo {
+	background-color: #ffffff;
+	border-radius: 50%;
+	height: 5rem;
+	object-fit: contain;
+	position: absolute;
+	transform: translate(10%, -50%);
+	width: 5rem;
+}
+.post-heading {
+	color: #6e8098;
+	font-size: 0.9rem;
+	margin: 0.5rem 0 0.75rem;
+}
+.post-heading span {
+	display: inline-block;
+}
+.post-date {
+	margin: 0 3rem 0 0;
+}
+.job-title {
+	color: #19202d;
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin: 0 0 0.75rem;
+}
+.company-name {
+	color: #6e8098;
+	margin: 0 0 2.25rem;
+}
+.job-location {
+	color: #5964e0;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.job-item-container {
+		margin: 1rem 0 3rem;
+		width: 45%;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.job-item-container {
+		margin: 1rem 0 3rem;
+		max-width: 370px;
+    }
+    .post-heading {
+        font-size: 1rem;
+        margin: 1rem 0 0.75rem;
+    }
+    .job-title {
+        font-size: 1.2rem;
+    }
+    .job-location {
+        font-size: 1rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.job-item-container {
+		margin: 1rem 0 3rem;
+		width: 30%;
+	}
+}
