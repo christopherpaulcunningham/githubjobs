@@ -4,7 +4,7 @@ import { GET_ERRORS } from './types';
 export const getJobsList = (data) => {
 	return async (dispatch) => {
 		await axios
-			.get('/jobs/jobs', data)
+			.post('/jobs/jobs', data)
 			.then((res) => {
 				return dispatch(setJobs(res.data));
 			})

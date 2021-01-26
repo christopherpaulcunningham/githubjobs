@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 const router = express.Router();
 
-router.get('/jobs', async (req, res) => {
+router.post('/jobs', async (req, res) => {
 	try {
 		let { description, fullTime, location, page } = req.body;
 
@@ -27,9 +27,7 @@ router.get('/jobs', async (req, res) => {
 
 		res.send(jobsList.data);
 	} catch (err) {
-		res
-			.status(400)
-			.send('Error retrieving list of jobs. Try again later.');
+		res.status(400).send('Error retrieving list of jobs. Try again later.');
 	}
 });
 
