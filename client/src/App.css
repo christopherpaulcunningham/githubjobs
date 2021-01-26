@@ -4,4 +4,11 @@
 	--navbar-text-color: #ffffff;
 	--main-theme-button-color: #7f76ff;
 	--main-theme-button-color-hover: #7f76ffa2;
+
+	font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+
+    background-color: #f0f6ff;
 }
