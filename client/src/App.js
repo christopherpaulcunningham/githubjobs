@@ -15,6 +15,7 @@ import Homepage from './components/Homepage/Homepage';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Dashboard from './components/Dashboard/Dashboard';
+import JobDetails from './components/JobDetails/JobDetails';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import './App.css';
 
@@ -50,6 +51,7 @@ function App() {
 			<div className="App">
 				<Navbar />
 				<Route exact path="/" component={Homepage} />
+				<Route exact path="/job/:id" component={JobDetails}/>
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
 				<Switch>

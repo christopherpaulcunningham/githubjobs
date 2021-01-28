@@ -1,0 +1,9 @@
+.search-results-container{
+    background-color: #f0f6ff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+    margin: auto;
+    padding-top: 4rem;
+    max-width: 1400px;  
+}

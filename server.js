@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/user');
+const jobs = require('./routes/job');
 
 const app = express();
 
-// Bodyparser middleware
+// Bodyparser middleware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -24,8 +25,9 @@ mongoose.connect(process.env.DB_CONNECTION_STRING, {
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-// Routes
+// Routes.
 app.use("/users", users);
+app.use("/jobs", jobs);
 
 // When the app is deployed, use whatever port. Locally, use port 5000.
 const PORT = process.env.PORT || '5000';

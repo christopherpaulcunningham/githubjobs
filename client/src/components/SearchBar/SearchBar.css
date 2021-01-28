@@ -1,0 +1,171 @@
+.searchbar-container {
+	background-color: #ffffff;
+	border-radius: 10px;
+	/* display: flex; */
+	height: 4rem;
+	margin: 2rem auto;
+	width: 90%;
+}
+.input-bar {
+	text-align: center;
+	width: 100%;
+}
+.form {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	height: 4rem;
+	width: 100%;
+}
+.input-section {
+	display: inline-block;
+	margin-left: 0.25rem;
+	text-align: left;
+}
+
+#description-section {
+	border-right: 1px solid #808080;
+	min-width: 5rem;
+	width: 35%;
+}
+#location-section {
+	border-right: 1px solid #808080;
+	min-width: 5rem;
+	width: 35%;
+}
+#fulltime-section {
+	width: 1.5rem;
+	text-align: center;
+}
+.full-time-text-x-short {
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+.full-time-text-short,
+.full-time-text-long {
+	display: none;
+	font-weight: 600;
+}
+.input-image {
+	display: none;
+}
+.searchbar-input {
+	border: none;
+	line-height: 2rem;
+	text-overflow: ellipsis;
+	width: 80%;
+}
+#btn-search {
+	display: none;
+	width: 4rem;
+}
+#btn-search-xs {
+	width: 2.5rem;
+}
+.label {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.searchbar-button {
+	background-color: #5964e0;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 0.8rem;
+	height: 3rem;
+}
+
+.xs-button-img {
+	height: 1rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.input-image {
+		display: inline-block;
+		height: 1.25rem;
+		padding-right: 0.5rem;
+		vertical-align: middle;
+	}
+
+	#description-section {
+		border: none;
+		min-width: 9rem;
+	}
+	#location-section {
+		border: none;
+		min-width: 9rem;
+	}
+	#fulltime-section {
+		width: 15%;
+		min-width: 3rem;
+	}
+
+	.full-time-text-short {
+		display: inline-block;
+		font-size: 0.75rem;
+	}
+	.full-time-text-x-short {
+		display: none;
+	}
+
+	#btn-search {
+		display: inline-block;
+	}
+
+	#btn-search-xs {
+		display: none;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.full-time-text-short {
+		font-size: 0.9rem;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.searchbar-container {
+		width: 80%;
+	}
+	#description-section {
+		width: 30%;
+	}
+	#location-section {
+		width: 30%;
+	}
+	#fulltime-section {
+		width: 15%;
+	}
+
+	.input-image {
+		height: 1.5rem;
+		padding-right: 0.5rem;
+		vertical-align: middle;
+	}
+	.full-time-text-long {
+		display: inline-block;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+	.full-time-text-short {
+		display: none;
+	}
+	.searchbar-button {
+		font-size: 1rem;
+		height: 3rem;
+		width: 4rem;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

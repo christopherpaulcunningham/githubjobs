@@ -1,0 +1,23 @@
+.arrow-container {
+	display: block;
+	margin: 1rem 0;
+	width: 100%;
+}
+
+.arrow {
+	display: inline-block;
+	height: 1rem;
+	margin-bottom: 0.2rem;
+	vertical-align: middle;
+}
+.arrow-container span {
+	display: inline-block;
+	line-height: 1.5rem;
+	margin-left: 0.3rem;
+	text-decoration: none;
+	color: #000000;
+}
+
+.arrow-container span:hover {
+	color: #464646;
+}
