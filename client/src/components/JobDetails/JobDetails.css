@@ -1,0 +1,155 @@
+.job-details-container {
+	margin: auto;
+    padding: 2rem 1rem;
+    scroll-behavior: smooth;
+	width: 100%;
+}
+
+.details-header-section {
+	background-color: #ffffff;
+	border-radius: 10px;
+	display: flex;
+	height: 8rem;
+	overflow: hidden;
+	align-items: middle;
+}
+
+.details-header-image-section {
+	display: none;
+}
+.details-company-logo {
+	height: 6rem;
+	object-fit: contain;
+	margin: 1rem auto;
+	padding: 0 1rem;
+	width: 6rem;
+}
+.details-header-company-title {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: middle;
+	justify-content: center;
+	padding: 1.5rem;
+	width: 60%;
+}
+.details-company-name {
+	display: block;
+	font-size: 1.35rem;
+	font-weight: 700;
+	margin: 0 0 0.5rem;
+}
+.details-company-url {
+	font-size: 0.9rem;
+}
+.details-company-url a {
+	text-decoration: none;
+	color: #6e8098;
+}
+.details-header-button-section {
+	margin: auto 0 auto auto;
+	padding: 1.5rem;
+}
+.apply-button {
+    display: block;
+	background-color: #5964e0;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	cursor: pointer;
+	font-weight: 700;
+    height: 3rem;
+    line-height: 3rem;
+    text-decoration: none;
+    text-align: center;
+	width: 6rem;
+}
+
+.body-section {
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin: 2rem auto;
+	padding: 2rem 1.5rem;
+}
+
+.details-job-title {
+	color: #19202d;
+	font-size: 1.35rem;
+	font-weight: 700;
+	margin: 0 0 0.75rem;
+}
+
+.details-job-location {
+	color: #5964e0;
+	font-size: 1rem;
+	font-weight: 700;
+}
+.details-job-description {
+    margin: 2rem 0;
+    white-space: pre-line;
+}
+.apply-section {
+    background-color: #5964e0;
+    border-radius: 10px;
+    color: #ffffff;
+	margin: 2rem auto;
+	padding: 2rem 1.5rem;
+}
+.apply-section h3 {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.job-details-container {
+		width: 90%;
+	}
+
+	.details-header-image-section {
+        display: block;
+		width: 6rem;
+        height: 8rem;
+        margin: auto auto auto 0;
+	}
+
+	.details-header-company-title {
+		/* padding: 2rem; */
+		width: 60%;
+    }
+    .details-header-button-section {
+        padding: 1rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.job-details-container {
+		min-width: 700px;
+		width: 80%;
+    }
+    
+    .details-header-image-section {
+		width: 8rem;
+		text-align: center;
+	}
+
+	.details-header-button-section {
+		padding: 2rem;
+	}
+	.apply-button {
+		font-size: 0.9rem;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.job-details-container {
+		max-width: 900px;
+		width: 80%;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

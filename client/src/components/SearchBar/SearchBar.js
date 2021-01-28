@@ -65,9 +65,9 @@ const SearchBar = (props) => {
 							type="checkbox"
 							checked={formData.fullTime}
 						/>
-						<label className="full-time-text-x-short">FT</label>
-						<label className="full-time-text-short">Full time</label>
-						<label className="full-time-text-long">Full time only</label>
+						<label className="label full-time-text-x-short" htmlFor="fullTime">FT</label>
+						<label className="label full-time-text-short" htmlFor="fullTime">Full time</label>
+						<label className="label full-time-text-long" htmlFor="fullTime">Full time only</label>
 					</div>
 					<button id="btn-search" className="searchbar-button" type="submit">
 						Search

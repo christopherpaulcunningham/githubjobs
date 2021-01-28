@@ -35,7 +35,7 @@
 }
 #fulltime-section {
 	width: 1.5rem;
-    text-align: center;
+	text-align: center;
 }
 .full-time-text-x-short {
 	display: inline-block;
@@ -62,6 +62,13 @@
 }
 #btn-search-xs {
 	width: 2.5rem;
+}
+.label {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .searchbar-button {
 	background-color: #5964e0;

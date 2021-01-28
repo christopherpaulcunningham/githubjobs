@@ -8,15 +8,16 @@ import './Homepage.css';
 
 const Homepage = () => {
 	const dispatch = useDispatch();
-	const jobs = useSelector((state) => state.jobs);
+	const jobList = useSelector((state) => state.jobs.jobList);
+	const currentJob = useSelector((state) => state.currentJob);
 
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
 	// When the list of jobs changes, update the results.
 	useEffect(() => {
-		setResults(jobs);
-	}, [jobs]);
+		setResults(jobList);
+	}, [jobList]);
 
 	const loadJobList = (searchParams) => {
 		const { description, location, full_time, page = 1 } = searchParams;
@@ -32,11 +33,12 @@ const Homepage = () => {
 
 	const loadJobs = (searchParams) => {
 		loadJobList(searchParams);
-  };
+	};
 
 	return (
 		<div className="homepage-container">
 			<SearchBar onSearch={loadJobs} />
+			<span>{currentJob}</span>
 			{isLoading ? (
 				<span className="loading">Loading...</span>
 			) : (

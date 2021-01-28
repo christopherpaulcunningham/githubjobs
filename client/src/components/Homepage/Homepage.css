@@ -1,6 +1,11 @@
 .homepage-container {
-    /* padding: 2rem 5rem; */
     width: 100%;
+}
+
+.loading {
+    display: block;
+    width: 5rem;
+    margin: 6rem auto 0;
 }
 
 

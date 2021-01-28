@@ -1,11 +1,22 @@
-import { SET_JOBS, LOAD_MORE_JOBS } from '../actions/types';
+import { SET_JOBS, SET_CURRENT_JOB, LOAD_MORE_JOBS } from '../actions/types';
 
-const initialState = {};
+const initialState = {
+	jobList: {},
+	currentJob: {},
+};
 
 const jobReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_JOBS:
-			return action.payload;
+			return {
+				...state,
+				jobList: action.payload,
+			};
+		case SET_CURRENT_JOB:
+			return {
+				...state,
+				currentJob: action.payload,
+			};
 		case LOAD_MORE_JOBS:
 			return [...state, ...action.payload];
 		default:
