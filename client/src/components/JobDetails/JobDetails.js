@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getJobById } from '../../actions/jobActions';
 import findElapsedTime from '../../utils/findElapsedTime';
+import Loading from '../shared/Loading/Loading';
 import BackArrow from '../shared/BackArrow/BackArrow';
 
 import './JobDetails.css';
@@ -30,11 +31,11 @@ const JobDetails = ({ match }) => {
 	}, []);
 
 	return (
-		<div>
+		<div className="job-details-container">
 			{isLoading ? (
-				<span className="loading">Loading...</span>
+				<Loading className="loading" />
 			) : (
-				<div className="job-details-container">
+				<div>
 					<BackArrow />
 					<div className="details-header-section">
 						<div className="details-header-image-section">

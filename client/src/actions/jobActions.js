@@ -1,12 +1,17 @@
 import axios from 'axios';
 import { GET_ERRORS, SET_JOBS, SET_CURRENT_JOB, LOAD_MORE_JOBS } from './types';
 
-export const getJobsList = (data) => {
+export const getJobsList = (data, isLoadMore) => {
 	return async (dispatch) => {
 		await axios
 			.post('/jobs/jobsList', data)
 			.then((res) => {
-				return dispatch(setJobs(res.data));
+				// Check whether the request is for a new search, or to load more results.
+				if (isLoadMore) {
+					return dispatch(setLoadMoreJobs(res.data));
+				} else {
+					return dispatch(setJobs(res.data));
+				}
 			})
 			.catch((err) =>
 				dispatch({

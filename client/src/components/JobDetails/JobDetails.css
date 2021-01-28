@@ -1,7 +1,7 @@
 .job-details-container {
 	margin: auto;
-    padding: 2rem 1rem;
-    scroll-behavior: smooth;
+	padding: 2rem 1rem;
+	scroll-behavior: smooth;
 	width: 100%;
 }
 
@@ -51,17 +51,17 @@
 	padding: 1.5rem;
 }
 .apply-button {
-    display: block;
+	display: block;
 	background-color: #5964e0;
 	border: none;
 	border-radius: 5px;
 	color: #ffffff;
 	cursor: pointer;
 	font-weight: 700;
-    height: 3rem;
-    line-height: 3rem;
-    text-decoration: none;
-    text-align: center;
+	height: 3rem;
+	line-height: 3rem;
+	text-decoration: none;
+	text-align: center;
 	width: 6rem;
 }
 
@@ -85,19 +85,22 @@
 	font-weight: 700;
 }
 .details-job-description {
-    margin: 2rem 0;
-    white-space: pre-line;
+	margin: 2rem 0;
+	white-space: pre-line;
 }
 .apply-section {
-    background-color: #5964e0;
-    border-radius: 10px;
-    color: #ffffff;
+	background-color: #5964e0;
+	border-radius: 10px;
+	color: #ffffff;
 	margin: 2rem auto;
 	padding: 2rem 1.5rem;
 }
 .apply-section h3 {
-    margin: 0 0 1rem 0;
-    padding: 0;
+	margin: 0 0 1rem 0;
+	padding: 0;
+}
+.job-details-container .loader {
+	padding-top: 9.57rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -107,19 +110,19 @@
 	}
 
 	.details-header-image-section {
-        display: block;
+		display: block;
 		width: 6rem;
-        height: 8rem;
-        margin: auto auto auto 0;
+		height: 8rem;
+		margin: auto auto auto 0;
 	}
 
 	.details-header-company-title {
 		/* padding: 2rem; */
 		width: 60%;
-    }
-    .details-header-button-section {
-        padding: 1rem;
-    }
+	}
+	.details-header-button-section {
+		padding: 1rem;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -127,9 +130,9 @@
 	.job-details-container {
 		min-width: 700px;
 		width: 80%;
-    }
-    
-    .details-header-image-section {
+	}
+
+	.details-header-image-section {
 		width: 8rem;
 		text-align: center;
 	}

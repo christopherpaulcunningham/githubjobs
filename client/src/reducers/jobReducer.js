@@ -18,7 +18,10 @@ const jobReducer = (state = initialState, action) => {
 				currentJob: action.payload,
 			};
 		case LOAD_MORE_JOBS:
-			return [...state, ...action.payload];
+			return {
+				...state,
+				jobList: [...state.jobList, ...action.payload],
+			};
 		default:
 			return state;
 	}
