@@ -1,6 +1,6 @@
 #navbar {
 	align-items: center;
-	background-color: var(--main-theme-color);
+	background-color: #5964e0;
 	color: var(--navbar-text-color);
 	display: flex;
 	font-weight: 400;
@@ -41,6 +41,13 @@
 .profile {
 	display: flex;
 	justify-content: center;
+	align-items: middle;
+}
+.authorised:hover {
+	color: #8993ff;
+}
+.user-details {
+	padding-top: 0.25rem;
 }
 #profile-icon {
 	height: 1.2rem;
@@ -54,19 +61,17 @@
 .nav-auth-button {
 	border: 1px solid var(--navbar-text-color);
 	border-radius: 5px;
-	width: 5rem;
-	text-align: center;
 	cursor: pointer;
+	line-height: 1.5rem;
+	text-align: center;
+	width: 5rem;
 }
 
-/* .navbar-links li a.current {
-	color: green !important;
+.nav-auth-button:hover {
+	background-color: #ffffff;
+	color: #5964e0 !important;
+	transition: all 0.2s ease-in;
 }
-
-.navbar-button a:hover {
-	color: green !important;
-	transition: all 0.3s ease-in;
-} */
 
 .hide {
 	margin: 0 auto;
@@ -121,12 +126,14 @@
 		-o-transition: height 300ms linear;
 		transition: height 300ms linear;
 		text-align: center;
+		z-index: -1;
 	}
 
 	.navbar-links.active {
 		display: flex;
 		text-align: center;
 		height: 5rem;
+		z-index: 0;
 	}
 
 	.navbar-links ul {
@@ -152,7 +159,7 @@
 }
 
 @media only screen and (max-width: 376px) {
-	#navbar {		
+	#navbar {
 		padding: 0 2rem;
 	}
 	.hamburger-button {

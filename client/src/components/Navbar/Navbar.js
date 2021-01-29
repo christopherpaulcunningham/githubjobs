@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import profileIcon from '../../assets/images/profileIcon.png';
+import profileIconHovered from '../../assets/images/profileIconHovered.png';
 
 import './Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);
+	const [profileIconSource, setProfileIconSource] = useState(profileIcon);
 
 	const logOut = () => {
 		dispatch(logoutUser());
@@ -21,6 +23,14 @@ function Navbar() {
 		document
 			.getElementsByClassName('navbar-links')[0]
 			.classList.toggle('active');
+	};
+
+	const changeImage = () => {
+		if (profileIconSource === profileIcon) {
+			setProfileIconSource(profileIconHovered);
+		} else {
+			setProfileIconSource(profileIcon);
+		}
 	};
 
 	return (
@@ -39,12 +49,20 @@ function Navbar() {
 				{auth.isAuthenticated ? (
 					<ul className="hide">
 						<li className="navbar-button">
-							<div className="profile">
-								<img src={profileIcon} id="profile-icon" alt="profile icon" />
-								<span className="user-details">
-									<Link to="/dashboard">{auth.user.firstName}</Link>
-								</span>
-							</div>
+							<Link to="/dashboard">
+								<div
+									className="profile authorised"
+									onMouseOver={changeImage}
+									onMouseOut={changeImage}
+								>
+									<img
+										src={profileIconSource}
+										id="profile-icon"
+										alt="profile icon"
+									/>
+									<span className="user-details">{auth.user.firstName}</span>
+								</div>
+							</Link>
 						</li>
 						<li className="navbar-button nav-auth-button" onClick={logOut}>
 							Logout
@@ -69,6 +87,6 @@ function Navbar() {
 			</div>
 		</nav>
 	);
-}
+};
 
 export default Navbar;
