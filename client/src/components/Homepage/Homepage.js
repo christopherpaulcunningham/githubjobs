@@ -16,6 +16,7 @@ const Homepage = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [pageNumber, setPageNumber] = useState(1);
 	const [searchParams, setSearchParams] = useState(null);
+	const [hideLoadButton, setHideLoadButton] = useState(false);
 
 	useEffect(() => {
 		// When the screen first loads, display a list of the most recent jobs.
@@ -41,7 +42,14 @@ const Homepage = () => {
 		dispatch(
 			getJobsList({ description, location, full_time, page }, isLoadMore)
 		)
-			.then(() => {
+			.then((res) => {
+				console.log(res);
+				if (res && res.payload.length === 0) {
+					setHideLoadButton(true);
+				  } else {
+					setHideLoadButton(false);
+				  }
+
 				setIsLoading(false);
 			})
 			.catch(() => setIsLoading(false));
@@ -63,7 +71,7 @@ const Homepage = () => {
 			<span>{currentJob}</span>
 			{<SearchResults results={results} isLoading={isLoading} />}
 			{isLoading && <Loading />}
-			{results.length > 0 && (
+			{results.length > 0 && !hideLoadButton && (
 				<div className="load-more" onClick={isLoading ? null : loadMoreJobs}>
 					<button
 						id="btn-load-more"
