@@ -8,7 +8,10 @@ import {
 } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser, logoutUser } from './actions/authActions';
+import {
+	logoutUser,
+	getLatestUserRecord,
+} from './actions/authActions';
 
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './components/Homepage/Homepage';
@@ -33,7 +36,7 @@ function App() {
 		const decoded = jwt_decode(token);
 
 		// Set user and isAuthenticated
-		dispatch(setCurrentUser(decoded));
+		dispatch(getLatestUserRecord(decoded));
 
 		// Check for an expired token.
 		const currentTime = Date.now() / 1000; // Time in milliseconds
@@ -51,7 +54,7 @@ function App() {
 			<div className="App">
 				<Navbar />
 				<Route exact path="/" component={Homepage} />
-				<Route exact path="/job/:id" component={JobDetails}/>
+				<Route exact path="/job/:id" component={JobDetails} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
 				<Switch>

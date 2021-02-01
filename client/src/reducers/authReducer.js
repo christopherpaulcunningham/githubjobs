@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, USER_LOADING } from '../actions/types';
+import { SET_CURRENT_USER, USER_LOADING, SET_USER_FAVOURITES } from '../actions/types';
 
 const isEmpty = require('is-empty');
 
@@ -21,9 +21,17 @@ const authReducer = (state = initialState, action) => {
 				...state,
 				loading: true,
 			};
+		case SET_USER_FAVOURITES:
+			return {
+				...state,
+				user: {
+					...state.user,
+					favourites: action.payload,
+				},
+			};
 		default:
 			return state;
 	}
-}
+};
 
 export default authReducer;

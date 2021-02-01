@@ -3,7 +3,6 @@
 	margin: 1rem 0;
 	width: 100%;
 }
-
 .arrow {
 	display: inline-block;
 	height: 1rem;
@@ -15,9 +14,10 @@
 	line-height: 1.5rem;
 	margin-left: 0.3rem;
 	text-decoration: none;
-	color: #000000;
 }
-
-.arrow-container span:hover {
+.hover-container{
+	width: 4rem;
+}
+.hover-container:hover {
 	color: #464646;
 }

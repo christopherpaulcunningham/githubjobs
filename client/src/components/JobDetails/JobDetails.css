@@ -1,4 +1,5 @@
 .job-details-container {
+	background-color: #f0f6ff;
 	margin: auto;
 	padding: 2rem 1rem;
 	scroll-behavior: smooth;
@@ -64,12 +65,30 @@
 	text-align: center;
 	width: 6rem;
 }
+.apply-button:hover {
+	background-color: #505aca;
+}
 
 .body-section {
 	background-color: #ffffff;
 	border-radius: 10px;
 	margin: 2rem auto;
 	padding: 2rem 1.5rem;
+	position: relative;
+}
+.btn-fav-container {
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+}
+.fifty {
+	/* margin: auto; */
+	width: 49%;
+}
+.float-right {
+	border: 1px solid red;
+
+	text-align: right;
 }
 
 .details-job-title {
@@ -91,6 +110,7 @@
 .apply-section {
 	background-color: #5964e0;
 	border-radius: 10px;
+	box-sizing: border-box;
 	color: #ffffff;
 	margin: 2rem auto;
 	padding: 2rem 1.5rem;
@@ -101,6 +121,9 @@
 }
 .job-details-container .loader {
 	padding-top: 9.57rem;
+}
+.apply-section-link{
+	color: #ffffff;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -142,6 +165,10 @@
 	}
 	.apply-button {
 		font-size: 0.9rem;
+	}
+	.btn-fav-container {
+		right: 2.5rem;
+		top: 2.5rem;
 	}
 }
 

@@ -1,0 +1,12 @@
+.btn-favourite {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.btn-favourite:focus {
+	outline-color: #ffffff;
+}
+.favourite-icon {
+	height: 2rem;
+	width: 2rem;
+}
