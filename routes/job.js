@@ -30,7 +30,13 @@ router.post('/jobsList', async (req, res) => {
 		const query = `https://jobs.github.com/positions.json?description=${description}&location=${location}${fullTime}${page}`;
 		const jobsList = await axios.get(query);
 
-		res.send(jobsList.data);
+		// Occasionally, older jobs are showing up in the fetch from the API. Sort the jobs by date.
+		const sortedJobs = jobsList.data.sort(
+			(a, b) =>
+			  new Date(b.created_at) - new Date(a.created_at)
+		  );
+
+		res.send(sortedJobs);
 	} catch (err) {
 		res.status(400).send('Error retrieving list of jobs. Try again later.');
 	}
