@@ -16,6 +16,7 @@
 	text-decoration: none;
 }
 .hover-container{
+	cursor: pointer;
 	width: 4rem;
 }
 .hover-container:hover {

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import arrow from '../../../assets/images/back-arrow.png';
 import arrowHovered from '../../../assets/images/back-arrow-hovered.png';
 import './BackArrow.css';
 
 function BackArrow() {
+	const history = useHistory();
 	const [profileIconSource, setProfileIconSource] = useState(arrow);
 
 	const changeImage = () => {
@@ -16,16 +17,17 @@ function BackArrow() {
 	};
 	return (
 		<div className="arrow-container">
-			<Link to="/" style={{ textDecoration: 'none', color: '#000000' }}>
+			{/* <button onClick={history.goBack} style={{ textDecoration: 'none', color: '#000000' }}> */}
 				<div
 					className="hover-container"
 					onMouseOver={changeImage}
 					onMouseOut={changeImage}
+					onClick={history.goBack}
 				>
 					<img src={profileIconSource} alt="Back arrow" className="arrow" />
 					<span>Back</span>
 				</div>
-			</Link>
+			{/* </button> */}
 		</div>
 	);
 }
