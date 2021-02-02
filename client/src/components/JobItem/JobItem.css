@@ -3,6 +3,7 @@
 	border-radius: 10px;
 	cursor: pointer;
 	display: inline-block;
+	overflow-wrap: break-word;
 	margin: 1rem 0 3rem;
 	max-width: 350px;
     padding: 0 1rem 1rem;

@@ -48,7 +48,7 @@ const JobDetails = ({ match }) => {
 		} else {
 			// Add the job to the list of favourites.
 			dispatch(
-				addFavouritePost({ userId: currentUser.id, jobId: currentJob.id })
+				addFavouritePost({ userId: currentUser.id, job: currentJob })
 			);
 			dispatch(toggleIsFavourite());
 		}

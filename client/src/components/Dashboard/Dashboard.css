@@ -1,4 +1,35 @@
 .dashboard-container {
-    padding: 2rem 5rem;
+	background-color: #f0f6ff;
+	padding: 1rem 1rem;
 	width: 100%;
+}
+
+h2 {
+	color: #5964e0;
+	margin: 1rem 0.5rem;
+	padding: 0;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.dashboard-container {
+		padding: 1rem 1.5rem;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.dashboard-container {
+		padding: 1rem 2.75rem;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }

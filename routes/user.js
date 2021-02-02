@@ -127,7 +127,12 @@ router.put('/favourites/save', async (req, res) => {
 
 		// Add the ID of the job to be saved to the favourites list.
 		const newFavourite = {
-			jobId: req.body.jobId,
+			jobId: req.body.job.id,
+			created_at: req.body.job.created_at,
+			company: req.body.job.company,
+			location: req.body.job.location,
+			title: req.body.job.title,
+			company_logo: req.body.job.company_logo,
 		};
 		user.favourites.unshift(newFavourite);
 
