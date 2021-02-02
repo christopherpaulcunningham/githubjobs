@@ -1,4 +1,4 @@
-import { SET_JOBS, SET_CURRENT_JOB, LOAD_MORE_JOBS } from '../actions/types';
+import { SET_JOBS, SET_CURRENT_JOB, TOGGLE_IS_FAVOURITE, LOAD_MORE_JOBS } from '../actions/types';
 
 const initialState = {
 	jobList: {},
@@ -17,6 +17,14 @@ const jobReducer = (state = initialState, action) => {
 				...state,
 				currentJob: action.payload,
 			};
+		case TOGGLE_IS_FAVOURITE:
+			return {
+				...state,
+				currentJob: {
+					...state.currentJob,
+					isFavourite: !state.currentJob.isFavourite
+				}
+			}
 		case LOAD_MORE_JOBS:
 			return {
 				...state,

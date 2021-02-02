@@ -43,13 +43,11 @@ const Homepage = () => {
 			getJobsList({ description, location, full_time, page }, isLoadMore)
 		)
 			.then((res) => {
-				console.log(res);
 				if (res && res.payload.length === 0) {
 					setHideLoadButton(true);
-				  } else {
+				} else {
 					setHideLoadButton(false);
-				  }
-
+				}
 				setIsLoading(false);
 			})
 			.catch(() => setIsLoading(false));
