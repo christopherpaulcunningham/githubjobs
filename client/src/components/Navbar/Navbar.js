@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 import profileIcon from '../../assets/images/profileIcon.png';
 import profileIconHovered from '../../assets/images/profileIconHovered.png';
+import githubIcon from '../../assets/images/github.png';
 
 import './Navbar.css';
 
@@ -35,17 +36,17 @@ const Navbar = () => {
 
 	return (
 		<nav id="navbar">
-			<div class="navbar-title">
+			<div className="navbar-title">
 				<Link to="/" className="header-link">
-					githubjobs
+					<img src={githubIcon} className="navbar-logo" alt="Logo" /> git a job
 				</Link>
 			</div>
-			<a class="hamburger-button" onClick={hamburgerMenuClick}>
-				<span class="hamburger-bar" id="hamburger-bar-1"></span>
-				<span class="hamburger-bar" id="hamburger-bar-2"></span>
-				<span class="hamburger-bar" id="hamburger-bar-3"></span>
+			<a className="hamburger-button" onClick={hamburgerMenuClick}>
+				<span className="hamburger-bar" id="hamburger-bar-1"></span>
+				<span className="hamburger-bar" id="hamburger-bar-2"></span>
+				<span className="hamburger-bar" id="hamburger-bar-3"></span>
 			</a>
-			<div class="navbar-links">
+			<div className="navbar-links">
 				{auth.isAuthenticated ? (
 					<ul className="hide">
 						<li className="navbar-button">

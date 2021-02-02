@@ -1,6 +1,8 @@
 .dashboard-container {
 	background-color: #f0f6ff;
 	padding: 1rem 1rem;
+	margin: auto;
+	max-width: 1200px;
 	width: 100%;
 }
 

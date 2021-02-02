@@ -14,6 +14,7 @@ const Homepage = () => {
 
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [isLoadingMore, setIsLoadingMore] = useState(false);
 	const [pageNumber, setPageNumber] = useState(1);
 	const [searchParams, setSearchParams] = useState(null);
 	const [hideLoadButton, setHideLoadButton] = useState(false);
@@ -38,7 +39,7 @@ const Homepage = () => {
 		let isLoadMore = searchParams.hasOwnProperty('page') ? true : false;
 
 		// Display loading message while list of jobs loads.
-		setIsLoading(true);
+		isLoadMore ? setIsLoadingMore(true) : setIsLoading(true);
 		dispatch(
 			getJobsList({ description, location, full_time, page }, isLoadMore)
 		)
@@ -48,9 +49,12 @@ const Homepage = () => {
 				} else {
 					setHideLoadButton(false);
 				}
-				setIsLoading(false);
+				isLoadMore ? setIsLoadingMore(false) : setIsLoading(false);
 			})
-			.catch(() => setIsLoading(false));
+			.catch(() => {
+				setIsLoading(false);
+				setIsLoadingMore(false);
+			});
 	};
 
 	const loadMoreJobs = () => {
@@ -67,8 +71,9 @@ const Homepage = () => {
 		<div className="homepage-container">
 			<SearchBar onSearch={loadJobs} />
 			<span>{currentJob}</span>
-			{<SearchResults results={results} isLoading={isLoading} />}
 			{isLoading && <Loading />}
+			{<SearchResults results={results} isLoading={isLoading} />}
+			{isLoadingMore && <Loading />}
 			{results.length > 0 && !hideLoadButton && (
 				<div className="load-more" onClick={isLoading ? null : loadMoreJobs}>
 					<button

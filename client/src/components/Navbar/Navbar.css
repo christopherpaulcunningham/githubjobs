@@ -5,33 +5,31 @@
 	display: flex;
 	font-weight: 400;
 	justify-content: space-between;
-	align-items: middle;
 	padding: 0 5rem;
 	width: 100%;
 }
-
+.navbar-logo {
+	height: 2.5rem;
+	vertical-align: middle;
+}
 .navbar-title {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 5rem;
 	user-select: none;
 }
-
 #navbar a {
 	text-decoration: none;
 	color: inherit;
 }
-
 .navbar-links ul {
 	align-items: middle;
 	display: flex;
 	padding: 0;
 }
-
 .navbar-links li {
 	list-style: none;
 }
-
 .navbar-button {
 	padding: 0.25rem;
 	margin: 0 0.75rem;
@@ -66,18 +64,15 @@
 	text-align: center;
 	width: 5rem;
 }
-
 .nav-auth-button:hover {
 	background-color: #ffffff;
 	color: #5964e0 !important;
 	transition: all 0.2s ease-in;
 }
-
 .hide {
 	margin: 0 auto;
 	width: 100%;
 }
-
 .hamburger-button {
 	display: none;
 	flex-direction: column;
@@ -113,7 +108,9 @@
 		align-items: flex-start;
 		flex-direction: column;
 	}
-
+	.navbar-title {
+		font-size: 1.5rem;
+	}
 	.hamburger-button {
 		display: flex;
 	}
@@ -126,29 +123,25 @@
 		-o-transition: height 300ms linear;
 		transition: height 300ms linear;
 		text-align: center;
-		z-index: -1;
+		z-index: -10;
 	}
-
 	.navbar-links.active {
 		display: flex;
 		text-align: center;
-		height: 5rem;
+		height: 6rem;
+		width: 15rem;
 		z-index: 0;
 	}
-
 	.navbar-links ul {
 		flex-direction: column;
 		width: 100%;
 	}
-
 	.navbar-links li {
 		text-align: center;
 	}
-
 	.hidden-profile {
 		display: block;
 	}
-
 	.nav-auth-button {
 		position: absolute;
 		margin: auto;

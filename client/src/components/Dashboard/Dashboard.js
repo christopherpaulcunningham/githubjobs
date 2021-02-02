@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getJobById } from '../../actions/jobActions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import FavouriteItem from '../FavouriteItem/FavouriteItem';
-
-import deleteIcon from '../../assets/images/delete.png';
-import eyeIcon from '../../assets/images/eye.png';
-
 import './Dashboard.css';
 
 const Dashboard = () => {
