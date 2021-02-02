@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { removeFavouritePost } from '../../actions/authActions';
 
 import findElapsedTime from '../../utils/findElapsedTime';
-import deleteIcon from '../../assets/images/delete.png';
+import deleteIcon from '../../assets/images/delete-red.png';
 import eyeIcon from '../../assets/images/eye.png';
 import './FavouriteItem.css';
 
@@ -39,13 +39,13 @@ const FavouriteItem = (props) => {
 					to={`/job/${job.jobId}`}
 					style={{ textDecoration: 'none' }}
 				>
-					<img src={eyeIcon} className="eye-icon" />
+					<img src={eyeIcon} className="eye-icon" alt="View job" />
 				</Link>
 				<button className="btn-delete">
 					<img
 						className="trashcan-icon"
 						src={deleteIcon}
-						alt="Delete from favourites."
+						alt="Delete from favourites"
 						onClick={handleRemoveFavourite}
 					/>
 				</button>

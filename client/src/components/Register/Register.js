@@ -6,6 +6,7 @@ import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
 
 import InputField from '../shared/InputField/InputField';
+import githubIcon from '../../assets/images/github.png';
 import './Register.css';
 
 function Register() {
@@ -30,7 +31,6 @@ function Register() {
 	}, [isAuthenticated, history]);
 
 	const onChange = (evt) => {
-		console.log(formData);
 		setFormData({ ...formData, [evt.target.id]: evt.target.value });
 	};
 
@@ -134,13 +134,13 @@ function Register() {
 					</div>
 				</div>
 				<div className="right-column">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
+					<div className="right-column-inner">
+						<img src={githubIcon} className="register-logo" alt="github logo" />
+						<h3>WELCOME!</h3>
+						<hr />
+						<p>Create an account to find your next opportunity!</p>
+						<p>Already have an account? Click 'Sign In'!</p>
+					</div>
 				</div>
 			</div>
 		</div>

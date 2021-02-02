@@ -33,7 +33,7 @@ const SearchBar = (props) => {
 			<div className="input-bar">
 				<form onSubmit={handleSearch} className="form">
 					<div className="input-section" id="description-section">
-						<img src={imgLoupe} className="input-image" />
+						<img src={imgLoupe} className="input-image" alt="magnifying glass" />
 						<input
 							id="description"
 							name="description"
@@ -45,7 +45,7 @@ const SearchBar = (props) => {
 						/>
 					</div>
 					<div className="input-section" id="location-section">
-						<img src={imgPin} className="input-image" />
+						<img src={imgPin} className="input-image" alt="location pin" />
 						<input
 							id="location"
 							name="location"
@@ -72,7 +72,7 @@ const SearchBar = (props) => {
 					<button id="btn-search" className="searchbar-button" type="submit">
 						Search
 					</button>
-					<button id="btn-search-xs" className="searchbar-button" type="submit"><img class="xs-button-img" src={imgLoupeWhite} /></button>
+					<button id="btn-search-xs" className="searchbar-button" type="submit"><img className="xs-button-img" src={imgLoupeWhite} alt="magnifying glass"/></button>
 				</form>
 			</div>
 		</div>

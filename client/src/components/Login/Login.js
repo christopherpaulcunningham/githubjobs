@@ -6,6 +6,7 @@ import { loginUser } from '../../actions/authActions';
 import classnames from 'classnames';
 
 import InputField from '../shared/InputField/InputField';
+import githubIcon from '../../assets/images/github.png';
 import './Login.css';
 
 function Login() {
@@ -55,7 +56,7 @@ function Login() {
 								<InputField
 									id="email"
 									value={formData.email}
-									error={errors.loginEmail, errors.emailnotfound}
+									error={errors.loginEmail || errors.emailnotfound}
 									type="email"
 									placeholder="Email"
 									className={classnames('', {
@@ -68,7 +69,7 @@ function Login() {
 								<InputField
 									id="password"
 									value={formData.password}
-									error={errors.loginPassword, errors.passwordincorrect}
+									error={errors.loginPassword || errors.passwordincorrect}
 									type="password"
 									placeholder="Password"
 									className={classnames('', {
@@ -89,13 +90,15 @@ function Login() {
 					</div>
 				</div>
 				<div className="right-column">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
+					<div className="right-column-inner">
+						<img src={githubIcon} className="login-logo" alt="github logo" />
+						<h3>WELCOME BACK!</h3>
+						<hr />
+						<p>Already have an account? Sign in now to find your next opportunity!</p>
+						<p>
+							Don't have an account yet? Click 'Sign Up' to get started.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
