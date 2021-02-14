@@ -163,7 +163,7 @@ router.delete('/favourites/delete', async (req, res) => {
 	}
 });
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res) {
 	res.send('Hello world!');
 });
 
