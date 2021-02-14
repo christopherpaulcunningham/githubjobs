@@ -13,11 +13,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB.
-mongoose.connect(process.env.DB_CONNECTION_STRING, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useCreateIndex: true,
-})
+mongoose
+	.connect(process.env.DB_CONNECTION_STRING, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useCreateIndex: true,
+	})
 	.then(() => console.log('MongoDB connected successfully.'))
 	.catch((err) => console.log(err));
 
@@ -26,8 +27,12 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Routes.
-app.use("/users", users);
-app.use("/jobs", jobs);
+app.use('/users', users);
+app.use('/jobs', jobs);
+
+app.get('/', (req, res) => {
+	res.send('Hello world.');
+});
 
 // When the app is deployed, use whatever port. Locally, use port 5000.
 const PORT = process.env.PORT || '5000';
