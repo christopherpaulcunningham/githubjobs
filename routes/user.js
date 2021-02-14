@@ -163,4 +163,8 @@ router.delete('/favourites/delete', async (req, res) => {
 	}
 });
 
+app.get('/', function (req, res) {
+	res.send('Hello world!');
+});
+
 module.exports = router;
