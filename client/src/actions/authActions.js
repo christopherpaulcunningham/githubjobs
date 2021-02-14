@@ -61,7 +61,6 @@ export const loginUser = (userData) => (dispatch) => {
 };
 
 export const addFavouritePost = (data) => (dispatch) => {
-	console.log(data);
 	axios
 		.put('/users/favourites/save', data)
 		.then((res) => {
