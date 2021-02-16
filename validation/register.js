@@ -30,7 +30,8 @@ module.exports = function validateUserRegistration(data) {
 	if (Validator.isEmpty(data.password)) {
 		errors.registerPassword = 'Please enter a password.';
 	} else if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
-		errors.password = 'Password must be between 6 & 30 characters long.';
+		errors.registerPassword = 'Password must be between 6 & 30 characters long.';
+		errors.registerPassword2 = 'Password must be between 6 & 30 characters long.';
 	}
 	if (Validator.isEmpty(data.password2)) {
 		errors.registerPassword2 = 'Please confirm your password.';

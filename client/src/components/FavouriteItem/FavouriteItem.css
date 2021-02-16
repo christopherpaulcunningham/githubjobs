@@ -65,14 +65,13 @@
 	transform: scale(1.125);
 }
 .eye-icon {
-	height: 1.5rem;
+	height: 1.25rem;
 	margin: 0 0.25rem 0 0;
 }
 .btn-delete {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	display: none;
 	margin-left: 0.5rem;
 }
 .btn-delete:hover {
@@ -82,7 +81,7 @@
 	outline-color: #ffffff;
 }
 .trashcan-icon {
-	height: 1.25rem;
+	height: 1rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -94,6 +93,12 @@
 	}
 	.favourite-item-container {
 		min-height: 5rem;
+	}
+	.eye-icon {
+		height: 1.5rem;
+	}
+	.trashcan-icon {
+		height: 1.25rem;
 	}
 }
 
