@@ -1,7 +1,7 @@
 #navbar {
 	align-items: center;
 	background-color: #5964e0;
-	color: var(--navbar-text-color);
+	color: #ffffff;
 	display: flex;
 	font-weight: 400;
 	justify-content: space-between;
@@ -57,7 +57,7 @@
 
 /* Login/logout button. */
 .nav-auth-button {
-	border: 1px solid var(--navbar-text-color);
+	border: 1px solid #ffffff;
 	border-radius: 5px;
 	cursor: pointer;
 	line-height: 1.5rem;
@@ -87,7 +87,7 @@
 	cursor: pointer;
 }
 .hamburger-bar {
-	background-color: var(--navbar-text-color);
+	background-color: #ffffff;
 	border-radius: 0.75rem;
 	height: 3px;
 	width: 100%;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import marked from 'marked';
+
 import { getJobById, toggleIsFavourite } from '../../actions/jobActions';
 import {
 	addFavouritePost,
@@ -9,6 +11,7 @@ import findElapsedTime from '../../utils/findElapsedTime';
 import Loading from '../shared/Loading/Loading';
 import BackArrow from '../shared/BackArrow/BackArrow';
 import FavouriteButton from '../FavouriteButton/FavouriteButton';
+import brokenImage from '../../assets/images/broken-image.png';
 
 import './JobDetails.css';
 
@@ -21,6 +24,7 @@ const JobDetails = ({ match }) => {
 
 	const jobId = match.params.id;
 	const [isLoading, setIsLoading] = useState(false);
+	const [imageLoaded, setImageLoaded] = useState(false);
 
 	// Load the job details.
 	useEffect(() => {
@@ -52,6 +56,18 @@ const JobDetails = ({ match }) => {
 		}
 	};
 
+	// The job description section is markup. Display it properly.
+	const formatDescription = () => {
+		let rawMarkup = marked(currentJob.description, { sanitize: true });
+		return { __html: rawMarkup };
+	};
+
+	// The 'how to apply' section is markup. Display it properly.
+	const formatApplySection = () => {
+		let rawMarkup = marked(currentJob.how_to_apply, { sanitize: true });
+		return { __html: rawMarkup };
+	};
+
 	return (
 		<div className="job-details-container">
 			{isLoading ? (
@@ -64,9 +80,16 @@ const JobDetails = ({ match }) => {
 							<div className="details-header-section">
 								<div className="details-header-image-section">
 									<img
-										src={currentJob.company_logo}
+										src={
+											imageLoaded && currentJob.company_logo
+												? currentJob.company_logo
+												: brokenImage
+										}
 										className="details-company-logo"
 										alt={currentJob.company}
+										onLoad={() => {
+											setImageLoaded(true);
+										}}
 									/>
 								</div>
 								<div className="details-header-company-title">
@@ -110,20 +133,19 @@ const JobDetails = ({ match }) => {
 									{currentJob.location}
 								</div>
 								<div className="details-job-description">
-									<div
-										dangerouslySetInnerHTML={{ __html: currentJob.description }}
-									></div>
+									<div dangerouslySetInnerHTML={formatDescription()}></div>
 								</div>
 							</div>
 							<div id="apply-now" className="apply-section">
 								<h3>How to apply.</h3>
-								<div
-									dangerouslySetInnerHTML={{ __html: currentJob.how_to_apply }}
-								></div>
+								<div dangerouslySetInnerHTML={formatApplySection()}></div>
 							</div>
 						</div>
 					) : (
-						<div className="no-details-found">There was a problem loading the job details, or the job listing has been removed. Please try again later.</div>
+						<div className="no-details-found">
+							There was a problem loading the job details, or the job listing
+							has been removed. Please try again later.
+						</div>
 					)}
 				</div>
 			)}
