@@ -1,10 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { setCurrentJob } from '../../actions/jobActions';
 import FavouriteItem from '../FavouriteItem/FavouriteItem';
 import './Dashboard.css';
 
 const Dashboard = () => {
+	const dispatch = useDispatch();
 	let favourites = useSelector((state) => state.auth.user.favourites);
 
 	// Sort the jobs by the date they were posted.
@@ -18,6 +20,11 @@ const Dashboard = () => {
 			<FavouriteItem job={job} key={index} />
 		));
 	}
+
+	useEffect(() => {
+		// Reset the current job.
+		dispatch(setCurrentJob({}));
+	}, []);
 
 	return (
 		<div className="dashboard-container">
