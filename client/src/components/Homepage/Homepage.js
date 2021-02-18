@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getJobsList } from '../../actions/jobActions';
+import { getJobsList, setCurrentJob } from '../../actions/jobActions';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Loading from '../shared/Loading/Loading';
@@ -24,6 +24,9 @@ const Homepage = () => {
 		if (!jobList.length > 0) {
 			loadJobs({ description: '', location: '', fullTime: true });
 		}
+
+		// Reset the current job.
+		dispatch(setCurrentJob({}));
 	}, []);
 
 	// When the list of jobs changes, update the results.

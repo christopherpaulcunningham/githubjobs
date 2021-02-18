@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { setCurrentJob } from '../../../actions/jobActions';
 import arrow from '../../../assets/images/back-arrow.png';
 import arrowHovered from '../../../assets/images/back-arrow-hovered.png';
 import './BackArrow.css';
 
 function BackArrow() {
+	const dispatch = useDispatch();
 	const history = useHistory();
 	const [profileIconSource, setProfileIconSource] = useState(arrow);
 
@@ -17,6 +20,9 @@ function BackArrow() {
 	};
 
 	const handleBackClick = () => {
+		// Reset the current job.
+		dispatch(setCurrentJob({}));
+
 		// If the user has clicked on the 'Apply Now' button, this will affect the history.
 		if (window.location.href.indexOf('apply') > -1) {
 			history.go(-2);
@@ -27,7 +33,6 @@ function BackArrow() {
 
 	return (
 		<div className="arrow-container">
-			{/* <button onClick={history.goBack} style={{ textDecoration: 'none', color: '#000000' }}> */}
 			<div
 				className="hover-container"
 				onMouseOver={changeImage}
@@ -37,7 +42,6 @@ function BackArrow() {
 				<img src={profileIconSource} alt="Back arrow" className="arrow" />
 				<span>Back</span>
 			</div>
-			{/* </button> */}
 		</div>
 	);
 }

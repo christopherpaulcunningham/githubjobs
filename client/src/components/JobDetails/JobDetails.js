@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import marked from 'marked';
+import DOMPurify from 'dompurify';
 
 import { getJobById, toggleIsFavourite } from '../../actions/jobActions';
 import {
@@ -58,13 +59,19 @@ const JobDetails = ({ match }) => {
 
 	// The job description section is markup. Display it properly.
 	const formatDescription = () => {
-		let rawMarkup = marked(currentJob.description, { sanitize: true });
+		// Purify the HTML from the API to prevent XSS attacks.
+		let cleanHtml = DOMPurify.sanitize(currentJob.description);
+
+		let rawMarkup = marked(cleanHtml);
 		return { __html: rawMarkup };
 	};
 
 	// The 'how to apply' section is markup. Display it properly.
 	const formatApplySection = () => {
-		let rawMarkup = marked(currentJob.how_to_apply, { sanitize: true });
+		// Purify the HTML from the API to prevent XSS attacks.
+		let cleanHtml = DOMPurify.sanitize(currentJob.how_to_apply);
+
+		let rawMarkup = marked(cleanHtml);
 		return { __html: rawMarkup };
 	};
 
